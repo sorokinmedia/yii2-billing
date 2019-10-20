@@ -15,7 +15,7 @@ class m191001_091128_create_operation_type_table extends Migration
         $this->createTable('operation_type', [
             'id' => $this->integer()->unique(),
             'name' => $this->string(300),
-            'type' => $this->string(50),
+            'transact_type' => $this->integer(1),
             'role' => $this->string(255),
         ]);
         $this->addPrimaryKey('pk-operation_type-id', 'operation_type', 'id');
