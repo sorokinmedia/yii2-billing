@@ -99,6 +99,11 @@ abstract class AbstractBillAffiliate extends ActiveRecord implements RelationInt
     abstract public function getOperations(): ActiveQuery;
 
     /**
+     * @return ActiveQuery
+     */
+    abstract public function getLastOperation(): ActiveQuery;
+
+    /**
      * обновление модели
      * @return bool
      * @throws Exception

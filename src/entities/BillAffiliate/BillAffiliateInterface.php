@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\billing\entities\BillAffiliate;
 
 use yii\db\ActiveQuery;
@@ -12,6 +13,12 @@ use yii\db\ActiveQuery;
 interface BillAffiliateInterface
 {
     /**
+     * @param int $user_id
+     * @return AbstractBillAffiliate
+     */
+    public static function create(int $user_id): AbstractBillAffiliate;
+
+    /**
      * получение связанного пользователя
      * @return ActiveQuery
      */
@@ -24,13 +31,13 @@ interface BillAffiliateInterface
     public function getOperations(): ActiveQuery;
 
     /**
-     * @param int $user_id
-     * @return AbstractBillAffiliate
-     */
-    public static function create(int $user_id): AbstractBillAffiliate;
-
-    /**
      * @return bool
      */
     public function updateModel(): bool;
+
+    /**
+     * получить последнюю операцию по счету
+     * @return ActiveQuery
+     */
+    public function getLastOperation(): ActiveQuery;
 }

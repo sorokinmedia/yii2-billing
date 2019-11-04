@@ -1,4 +1,5 @@
 <?php
+
 namespace sorokinmedia\billing\entities\OperationType;
 
 use yii\db\ActiveQuery;
@@ -11,12 +12,6 @@ use yii\db\ActiveQuery;
  */
 interface OperationTypeInterface
 {
-    /**
-     * получить связанные операции
-     * @return ActiveQuery
-     */
-    public function getOperations(): ActiveQuery;
-
     /**
      * получить типы по роли
      * @param string $role
@@ -41,6 +36,12 @@ interface OperationTypeInterface
      * @return array
      */
     public static function getDecreaseTypesArray(): array;
+
+    /**
+     * получить связанные операции
+     * @return ActiveQuery
+     */
+    public function getOperations(): ActiveQuery;
 
     /**
      * трансфер данных из формы

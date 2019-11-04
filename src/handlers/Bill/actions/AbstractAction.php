@@ -1,8 +1,9 @@
 <?php
+
 namespace sorokinmedia\billing\handlers\Bill\actions;
 
+use sorokinmedia\billing\entities\Bill\AbstractBill;
 use sorokinmedia\billing\handlers\Bill\interfaces\ActionExecutable;
-use sorokinmedia\entities\Bill\AbstractBill;
 
 /**
  * Class AbstractAction

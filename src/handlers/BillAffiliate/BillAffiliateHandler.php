@@ -1,28 +1,26 @@
 <?php
 
-namespace sorokinmedia\billing\handlers\Bill;
+namespace sorokinmedia\billing\handlers\BillAffiliate;
 
-use sorokinmedia\billing\entities\Bill\AbstractBill;
+use sorokinmedia\billing\entities\BillAffiliate\AbstractBillAffiliate;
 use sorokinmedia\billing\handlers\Bill\interfaces\{Decrease, Increase, Update};
-use Throwable;
 use yii\db\Exception;
-use yii\db\StaleObjectException;
 
 /**
- * Class BillHandler
- * @package sorokinmedia\billing\handlers\Bill
+ * Class BillAffiliateHandler
+ * @package sorokinmedia\billing\handlers\BillAffiliate
  *
- * @property AbstractBill $bill
+ * @property AbstractBillAffiliate $bill
  */
-class BillHandler implements Increase, Decrease, Update
+class BillAffiliateHandler implements Increase, Decrease, Update
 {
     public $bill;
 
     /**
-     * BillHandler constructor.
-     * @param AbstractBill $bill
+     * BillAffiliateHandler constructor.
+     * @param AbstractBillAffiliate $bill
      */
-    public function __construct(AbstractBill $bill)
+    public function __construct(AbstractBillAffiliate $bill)
     {
         $this->bill = $bill;
         return $this;
@@ -32,8 +30,6 @@ class BillHandler implements Increase, Decrease, Update
      * @param float $sum
      * @return bool
      * @throws Exception
-     * @throws Throwable
-     * @throws StaleObjectException
      */
     public function increase(float $sum = 0): bool
     {
@@ -44,8 +40,6 @@ class BillHandler implements Increase, Decrease, Update
      * @param float $sum
      * @return bool
      * @throws Exception
-     * @throws Throwable
-     * @throws StaleObjectException
      */
     public function decrease(float $sum = 0): bool
     {
@@ -55,8 +49,6 @@ class BillHandler implements Increase, Decrease, Update
     /**
      * @return bool
      * @throws Exception
-     * @throws Throwable
-     * @throws StaleObjectException
      */
     public function update(): bool
     {

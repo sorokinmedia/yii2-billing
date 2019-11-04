@@ -1,5 +1,6 @@
 <?php
-namespace sorokinmedia\billing\entities\Operation;
+
+namespace sorokinmedia\billing\entities\OperationAffiliate;
 
 use yii\db\ActiveQuery;
 

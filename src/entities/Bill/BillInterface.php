@@ -1,5 +1,6 @@
 <?php
-namespace sorokinmedia\entities\Bill;
+
+namespace sorokinmedia\billing\entities\Bill;
 
 use yii\db\ActiveQuery;
 
@@ -57,4 +58,10 @@ interface BillInterface
      * @param int $admin_user_id
      */
     public function setAdminUserId(int $admin_user_id): void;
+
+    /**
+     * получить последнюю операцию по счету
+     * @return ActiveQuery
+     */
+    public function getLastOperation(): ActiveQuery;
 }

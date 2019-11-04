@@ -1,9 +1,8 @@
 <?php
 
-namespace common\components\affiliate\entities\AffiliateOperation;
+namespace sorokinmedia\billing\entities\OperationAffiliate;
 
 use sorokinmedia\ar_relations\RelationInterface;
-use sorokinmedia\billing\entities\Operation\OperationAffiliateInterface;
 use Throwable;
 use Yii;
 use yii\behaviors\TimestampBehavior;

@@ -1,6 +1,6 @@
 <?php
 
-namespace sorokinmedia\entities\Bill;
+namespace sorokinmedia\billing\entities\Bill;
 
 use sorokinmedia\ar_relations\RelationInterface;
 use sorokinmedia\billing\forms\BillForm;
@@ -177,4 +177,9 @@ abstract class AbstractBill extends ActiveRecord implements RelationInterface, B
     {
         $this->_admin_bill_id = $admin_bill_id;
     }
+
+    /**
+     * @return ActiveQuery
+     */
+    abstract public function getLastOperation(): ActiveQuery;
 }

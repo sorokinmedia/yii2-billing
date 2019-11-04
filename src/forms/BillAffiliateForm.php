@@ -2,28 +2,28 @@
 
 namespace sorokinmedia\billing\forms;
 
-use sorokinmedia\billing\entities\Bill\AbstractBill;
+use sorokinmedia\billing\entities\BillAffiliate\AbstractBillAffiliate;
 use Yii;
 use yii\base\Model;
 
 /**
- * Class BillForm
+ * Class BillAffiliateForm
  * @package sorokinmedia\billing\forms
  *
  * @property integer $user_id
  * @property float $sum
  */
-class BillForm extends Model
+class BillAffiliateForm extends Model
 {
     public $user_id;
     public $sum;
 
     /**
-     * BillForm constructor.
+     * BillAffiliateForm constructor.
      * @param array $config
-     * @param AbstractBill|null $bill
+     * @param AbstractBillAffiliate|null $bill
      */
-    public function __construct(array $config = [], AbstractBill $bill = null)
+    public function __construct(array $config = [], AbstractBillAffiliate $bill = null)
     {
         if ($bill !== null) {
             $this->user_id = $bill->user_id;
