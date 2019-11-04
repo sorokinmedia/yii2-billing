@@ -2,6 +2,7 @@
 
 namespace sorokinmedia\billing;
 
+use sorokinmedia\billing\interfaces\HandlerInterface;
 use yii\base\Component;
 
 /**
@@ -10,11 +11,6 @@ use yii\base\Component;
  */
 class BillingService extends Component
 {
-    public $services;
-    public $outboxes;
-    private $_loadedServices;
-    private $_loadedOutboxes;
-
     /**
      * Services Initialization
      * @return void
@@ -22,28 +18,14 @@ class BillingService extends Component
     public function init(): void
     {
         parent::init();
-        foreach ($this->services as $name => $class) {
-            $this->_loadedServices[$name] = new $class([
-                //todo: add params 'viewPath' => $this->viewPath
-            ]);
-        }
-        foreach ($this->outboxes as $name => $class) {
-            $this->_loadedOutboxes[$name] = $class;
-        }
     }
 
     /**
      * @param HandlerInterface $handler
-     * @return void
+     * @return int
      */
-    public function send(HandlerInterface $handler): void
+    public function send(HandlerInterface $handler): int
     {
-        $outboxes = $handler->execute();
-        foreach ($this->_loadedServices as $service) {
-            /** @var ServiceInterface $service */
-            foreach ($outboxes as $baseOutbox) {
-                $service->send($baseOutbox, $this->_loadedOutboxes[$service->getName()]);
-            }
-        }
+        return $handler->execute();
     }
 }
