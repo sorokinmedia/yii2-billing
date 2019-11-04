@@ -7,7 +7,7 @@ use sorokinmedia\billing\forms\BillForm;
 use Throwable;
 use Yii;
 use yii\behaviors\TimestampBehavior;
-use yii\db\{ActiveQuery, ActiveRecord, Exception};
+use yii\db\{ActiveQuery, ActiveRecord, Exception, StaleObjectException};
 
 /**
  * This is the model class for table "bill".
@@ -113,6 +113,28 @@ abstract class AbstractBill extends ActiveRecord implements RelationInterface, B
             $this->sum = $this->form->sum;
         }
     }
+
+    /**
+     * обновление модели в БД
+     * @return bool
+     * @throws Exception
+     * @throws Throwable
+     * @throws StaleObjectException
+     */
+    public function updateModel(): bool
+    {
+        $this->getFromForm();
+        if (!$this->update()) {
+            throw new Exception(Yii::t('app', 'Ошибка при обновлении счета в БД'));
+        }
+        return $this->afterUpdateModel();
+    }
+
+    /**
+     * действия после обновления счета
+     * @return bool
+     */
+    abstract public function afterUpdateModel(): bool;
 
     /**
      * @return ActiveQuery

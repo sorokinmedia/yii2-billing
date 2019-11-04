@@ -1,5 +1,5 @@
 <?php
-namespace sorokinmedia\entities\Operation;
+namespace sorokinmedia\billing\entities\Operation;
 
 use yii\db\ActiveQuery;
 

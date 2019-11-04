@@ -1,6 +1,6 @@
 <?php
 
-namespace sorokinmedia\entities\Operation;
+namespace sorokinmedia\billing\entities\Operation;
 
 use sorokinmedia\ar_relations\RelationInterface;
 use sorokinmedia\billing\forms\OperationForm;
